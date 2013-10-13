@@ -1,0 +1,18 @@
+<% content_for :main_navigation do %>
+  <nav id="main_nav" role="navigation">
+      <ul>
+        <%#= nav_tab 'Home', root_path, current: current_tab %>
+        <%= nav_tab 'Intern Requests', intern_requests_path, current: current_tab %>
+        <%= nav_tab 'Contacts', contacts_path, current: current_tab %>
+        <%= nav_tab 'Mentors', mentors_path, current: current_tab %>
+        <%= nav_tab 'Authorized_people', authorized_people_path, current: current_tab %>
+        <%= nav_tab 'Interviewers', interviewers_path, current: current_tab %>
+        <%= nav_tab 'Intern_questions', intern_questions_path, current: current_tab %>
+        <%= nav_tab 'Enrichment_acts', enrichment_acts_path, current: current_tab %>
+        <%= nav_tab 'Internship_locations', internship_locations_path, current: current_tab %>   
+        <%= nav_tab 'Agencies', agencies_path, current: current_tab %>
+        
+        
+      </ul>
+  </nav>
+<% end %>

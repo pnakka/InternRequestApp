@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  InternProjectDesc: MyText
+  StartHour: 2012-08-21 22:08:35
+  EndHour: 2012-08-21 22:08:35
+  StartDate: 2012-08-21
+  EndDate: 2012-08-21
+  OfficeDutiesPercent: 1
+  OutFieldWorkPercent: 1
+  EveningMeetingsPercent: 1
+  WeekendWorkPercent: 1
+  InternProvisionPhone: false
+  InternProvisionEmail: false
+
+two:
+  InternProjectDesc: MyText
+  StartHour: 2012-08-21 22:08:35
+  EndHour: 2012-08-21 22:08:35
+  StartDate: 2012-08-21
+  EndDate: 2012-08-21
+  OfficeDutiesPercent: 1
+  OutFieldWorkPercent: 1
+  EveningMeetingsPercent: 1
+  WeekendWorkPercent: 1
+  InternProvisionPhone: false
+  InternProvisionEmail: false

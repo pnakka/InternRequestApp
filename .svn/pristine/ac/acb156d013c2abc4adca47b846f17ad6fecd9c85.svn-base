@@ -1,0 +1,6 @@
+<h1>Editing intern_request</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @intern_request %> |
+<%= link_to 'Back', intern_requests_path %>

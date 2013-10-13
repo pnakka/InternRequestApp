@@ -1,0 +1,49 @@
+require 'test_helper'
+
+class InternQuestionsControllerTest < ActionController::TestCase
+  setup do
+    @intern_question = intern_questions(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:intern_questions)
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should create intern_question" do
+    assert_difference('InternQuestion.count') do
+      post :create, intern_question: { name: @intern_question.name, value: @intern_question.value }
+    end
+
+    assert_redirected_to intern_question_path(assigns(:intern_question))
+  end
+
+  test "should show intern_question" do
+    get :show, id: @intern_question
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get :edit, id: @intern_question
+    assert_response :success
+  end
+
+  test "should update intern_question" do
+    put :update, id: @intern_question, intern_question: { name: @intern_question.name, value: @intern_question.value }
+    assert_redirected_to intern_question_path(assigns(:intern_question))
+  end
+
+  test "should destroy intern_question" do
+    assert_difference('InternQuestion.count', -1) do
+      delete :destroy, id: @intern_question
+    end
+
+    assert_redirected_to intern_questions_path
+  end
+end

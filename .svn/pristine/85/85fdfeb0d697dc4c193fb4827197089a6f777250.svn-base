@@ -1,0 +1,74 @@
+
+
+rails generate scaffold AuthorizedPerson FirstName:string  LastName:string title:string department:string phone:string email:string
+
+rails generate scaffold Mentor FirstName:string  LastName:string title:string department:string phone:string email:string
+
+rails generate scaffold Agency AgencyName:string phone:string email:string
+
+rails generate scaffold LoginUser Login:string Password:string Email:string 
+
+rails generate scaffold Interviewer FirstName:string LastName:string Email:string title:string phone:string 
+
+rails generate scaffold InternshipLocation Phone:string 
+
+rails generate scaffold Contact FirstName:string LastName:string Email:string Phone:string 
+
+rails generate scaffold Job Job_title:string Job_description:text Required_skills_1:text Required_skills_2:text Required_skills_3:text Startdate:datetime Enddate:datetime
+
+rails generate scaffold Department DepartmentName:string
+
+rails generate scaffold	Address StreetNumber:string StreetName:string City:string State:string Zipcode:string
+
+rails generate scaffold County CountyName:string
+
+rails generate scaffold Status StatusDescription:string
+
+rails generate scaffold InternRequest InternProjectDesc:text StartHour:time EndHour:time StartDate:time EndDate:time OfficeDutiesPercent:integer OutFieldWorkPercent:integer EveningMeetingsPercent:integer WeekendWorkPercent:integer InternProvisionPhone:boolean  InternProvisionEmail:boolean  
+
+rails generate scaffold EnrichmentAct name:string desc:string
+
+rails generate scaffold InternQuestion name:string value:boolean
+
+agency = Agency.create(:AgencyName => 'AC Transit', :phone => '510-876-9876', :email => 'help@actransit.org')
+
+mentor = Mentor.create(:FirstName => 'Yong', :LastName => 'Lee', :title => 'System Admin', :department => 'A&TS', :phone => '5108175829', :email => 'ylee@actransit.org')
+
+authorizedPerson = AuthorizedPerson.create(:FirstName => 'Pranathi', :LastName => 'Naka', :title => 'System Admin', :department => 'A&TS', :phone => '510999999', :email => 'nakaP@actransit.org')
+
+agency.AuthorizedPeople << AuthorizedPerson.create(:FirstName => 'Tom', :LastName => 'Bryan', :title => 'Database Admin', :department => 'Health', :phone => '847-444-443', :email => 'tBryan@actransit.org')
+
+authorizedPerson_2 = AuthorizedPerson.where("FirstName LIKE :search", {:search => '%tom%'} )
+
+
+
+
+
+authorizedPerson_2 = AuthorizedPerson.first
+
+agencies = Agency.all
+
+agency = Agency.first
+
+authorizedPerson_2.agency = Agency.create(:AgencyName => 'Alameda County Public Works Agency', :phone => '510-987-9844', :email => 'acpw@ACPW.org')
+
+
+agency_1 = Agency.first
+agency_2 = Agency.find(2)
+
+
+mentor  = Mentor.first
+mentor.agency = agency_1
+mentor.save
+
+authorizedPerson = AuthorizedPerson.first
+
+authorizedPerson.agency = agency_2
+
+authorizedPerson.save
+
+
+===========================================
+
+
+

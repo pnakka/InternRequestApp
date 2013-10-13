@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    <% if content_for?(:title) %>
+      InternRequest: <%= yield :title %>
+    <% else %>
+      InternRequest
+    <% end %>
+  </title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/header' %>
+  
+  <div class="container">
+    <section id="content">
+      <%# START:notifications %>
+      <% if notice %>
+        <p class="notification notice">
+          <%= notice %>
+        </p>
+      <% end %>
+
+      <% if alert %>
+        <p class="notification alert">
+          <%= alert %>
+        </p>
+      <% end %>
+      <%# END:notifications %>
+      <%= yield %>
+    </section>
+    
+  </div>
+  <%= render 'layouts/footer' %>
+</body>
+</html>

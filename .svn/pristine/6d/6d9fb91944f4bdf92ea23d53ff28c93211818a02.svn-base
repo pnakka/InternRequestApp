@@ -1,0 +1,161 @@
+require 'net/smtp'
+
+@EMAIL_HOST='pp-ag1.abag.ca.gov'
+
+def send_message()
+
+  message = <<MESSAGE_END
+From: Yong Lee <ylee@mtc.ca.gov>
+To: Yong Lee <ylee@mtc.ca.gov>
+Subject: Ruby SMTP e-mail test 2
+
+This is a test e-mail message from ruby with multiple recipients.
+MESSAGE_END
+
+  email_recipients = ['ylee@mtc.ca.gov','ylee_95116@yaho.com']
+
+  Net::SMTP.start(@EMAIL_HOST) do |smtp|
+    smtp.send_message(message, 'ylee@mtc.ca.gov', email_recipients)
+                             
+  end
+end
+
+def send_html_message()
+
+  message = <<MESSAGE_END
+From: Yong Lee <ylee@mtc.ca.gov>
+To: Yong Lee <ylee@mtc.ca.gov>
+MIME-Version: 1.0
+Content-type: text/html
+Subject: Ruby SMTP HTML Version e-mail test
+
+This is a test e-mail message in HTML format multiple recipients.
+<b>This is HTML message.</b>
+<h1>This is headline.</h1>
+
+MESSAGE_END
+
+  email_recipients = ['ylee@mtc.ca.gov','ylee_95116@yaho.com']
+
+  Net::SMTP.start(@EMAIL_HOST) do |smtp|
+    smtp.send_message(message, 'ylee@mtc.ca.gov', email_recipients)
+
+  end
+end
+
+def send_message_with_attachment()
+
+  #filename = "/home/ylee/projects/asset_tracker/lib/tasks/asset_manager/data_file/everbridge_mtc_members_output.csv"
+  filename = "/home/ylee/projects/asset_tracker/lib/tasks/asset_manager/data_file/a.csv"
+  email_recipients = ['ylee@mtc.ca.gov','ylee_95116@yaho.com']
+  
+  # Read a file and encode it into base64 format
+  filecontent = File.read(filename)
+  encodedcontent = [filecontent].pack("m")   # base64
+
+  marker = "AUNIQUEMARKER"
+
+  body =<<EOF
+This is a test email to send an attachement.
+EOF
+
+  # Define the main headers.
+  part1 =<<EOF
+From: Yong Lee <ylee@mtc.ca.gov>
+To: Yong Lee <ylee@mtc.ca.gov>
+Subject: Sending Attachement
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=#{marker}
+--#{marker}
+EOF
+
+  # Define the message action
+  part2 =<<EOF
+Content-Type: text/plain
+Content-Transfer-Encoding:8bit
+
+#{body}
+--#{marker}
+EOF
+
+  # Define the attachment section
+  part3 =<<EOF
+Content-Type: multipart/mixed; name=\"#{filename}\"
+Content-Transfer-Encoding:base64
+Content-Disposition: attachment; filename="#{filename}"
+
+#{encodedcontent}
+--#{marker}--
+EOF
+
+  mailtext = part1 + part2 + part3
+
+  # Let's put our code in safe area
+  begin
+    Net::SMTP.start(@EMAIL_HOST) do |smtp|
+      smtp.sendmail(mailtext, 'ylee@mtc.ca.gov', email_recipients)
+    end
+  rescue Exception => e
+    print "Exception occured: " + e + "\n"
+  end
+
+end
+
+def convert_to_string (recipients)
+
+  recipients_str = ''
+  recipients.each {|r|
+    r = "<#{r}>,"
+    recipients_str = recipients_str.concat(r)
+  }
+
+  #remove the last ',' character
+  return recipients_str.chomp(',')
+
+end
+
+
+def send_message(from, to, subject, mesg)
+
+  #convert an email recipient array to a string
+  to_str = convert_to_string(to)
+  
+  message = <<MESSAGE_END
+From: <#{from}>
+To: #{to_str}
+Subject: #{subject}
+
+#{mesg}
+MESSAGE_END
+
+
+  Net::SMTP.start(@EMAIL_HOST) do |smtp|
+    smtp.send_message(message, from, to)
+
+  end
+end
+
+
+
+def test_ruby_email
+
+#send_message
+
+
+sender = 'ylee@mtc.ca.gov'
+recipients = ['ylee@mtc.ca.gov','ylee_95116@yahoo.com']
+#recipients = ['ylee_95116@yahoo.com']
+#recipients = ['ylee@mtc.ca.gov']
+subject = 'Ruby SMTP e-mail test -- Waaa hoooo'
+message = 'Welcome to Wa hoo! This is a new test for sending custom email message from ruby. If you receive this email, please reply back to me.'
+send_message(sender, recipients, subject, message)
+
+
+#send_html_message
+#send_message_with_attachment
+end
+
+
+#test_ruby_email
+
+

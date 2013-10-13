@@ -1,0 +1,17 @@
+# modify from The Rails View
+module NavigationHelper
+
+  def nav_tab(title, url, options = {})
+    puts"\n options is #{options}"
+    current_tab = options.delete(:current)
+    puts"\n current_tab is #{current_tab}"
+    options[:class] = (current_tab == title) ? 'active' : 'inactive'
+    content_tag(:li, link_to(title, url), options)
+  end
+
+  def current_at_tab(tab)
+    puts "Current at tab: #{tab}"
+    render partial: 'layouts/main_nav', locals: {current_tab: tab}
+  end
+
+end

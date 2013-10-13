@@ -1,0 +1,3 @@
+class InternRequest < ActiveRecord::Base
+  attr_accessible :EndDate, :EndHour, :EveningMeetingsPercent, :InternProjectDesc, :InternProvisionEmail, :InternProvisionPhone, :OfficeDutiesPercent, :OutFieldWorkPercent, :StartDate, :StartHour, :WeekendWorkPercent
+end

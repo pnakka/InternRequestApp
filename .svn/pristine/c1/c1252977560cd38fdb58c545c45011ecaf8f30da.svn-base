@@ -1,0 +1,7 @@
+class Agency < ActiveRecord::Base
+  attr_accessible :AgencyName, :email, :phone
+  
+  has_many :mentors
+  has_many :AuthorizedPeople
+  
+end

@@ -1,0 +1,33 @@
+<h1>Listing authorized_people</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Title</th>
+    <th>Department</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @authorized_people.each do |authorized_person| %>
+  <tr>
+    <td><%= authorized_person.FirstName %></td>
+    <td><%= authorized_person.LastName %></td>
+    <td><%= authorized_person.title %></td>
+    <td><%= authorized_person.department %></td>
+    <td><%= authorized_person.phone %></td>
+    <td><%= authorized_person.email %></td>
+    <td><%= link_to 'Show', authorized_person %></td>
+    <td><%= link_to 'Edit', edit_authorized_person_path(authorized_person) %></td>
+    <td><%= link_to 'Destroy', authorized_person, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Authorized person', new_authorized_person_path %>

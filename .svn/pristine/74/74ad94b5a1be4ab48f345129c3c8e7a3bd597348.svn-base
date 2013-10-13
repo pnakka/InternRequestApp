@@ -1,0 +1,266 @@
+namespace :InternRequestApp do
+  namespace :db_management do
+
+    require File.join(
+    File.expand_path(File.dirname(__FILE__)),
+    '../support/logging_and_reporting'
+    )
+
+=begin
+require File.join(
+File.expand_path(File.dirname(__FILE__)),
+'../mtc_employee_updater/support/common_funcs'
+)
+=end
+
+    require 'rubygems'
+
+    desc "Create initial data values in the database."
+    task :create_data => :environment do
+
+      begin
+
+        log_init("internReq")
+
+        log "\n\n Starting task: create_data ....\n\n"
+
+         agency = Agency.create(:AgencyName => 'AC Transit', :phone => 5108769876, :email => 'help@actransit.org')
+         agency_2 = Agency.create(:AgencyName => 'ACCMA', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Alameda County Public Works Agency', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Alameda County Transportation Commission', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Bay Area Rapid Transit - Communications', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART - Office of Civil Rights', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART, Labor Relations', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART, Marketing Dept', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART, OSR, Rail Ops. Sup.', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART - Real Estate Dept', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART - Risk Mgt', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART, Station Ops.', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART, Transit System Compliance', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'BART, TSD / AFC', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Bay Area Toll Authority', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Caltrans', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Capitol Corridor JPA', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Alameda Dept./Public Works', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Albany', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Berkeley', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Hayward', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Hayward / Public Works', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Oakland', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Pleasanton', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of San Leandro', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'MTC', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Port of Oakland', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Rides', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Union City Transit', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         
+         
+         agency_2 = Agency.create(:AgencyName => 'City of Napa - Public Works', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'County of Napa - Public Works', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Napa County Transportation and Planning Agency', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         
+         agency_2 = Agency.create(:AgencyName => 'City of Novato', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Sausalito', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'County of Marin - Public Works', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Golden Gate Bridge, Highway & Transp. District', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'Town of Corte Madera - Public Works', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'Town of Fairfax', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+            agency_2 = Agency.create(:AgencyName => 'Town of Tiburon', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+             agency_2 = Agency.create(:AgencyName => 'Transportation Authority of Marin', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+             
+              agency_2 = Agency.create(:AgencyName => '511 Contra Costa (Pleasant Hill)', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+              agency_2 = Agency.create(:AgencyName => 'Central Contra Costa Transit Authority (CCCTA)', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+              agency_2 = Agency.create(:AgencyName => 'City of Antioch', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+              agency_2 = Agency.create(:AgencyName => 'City of Concord', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+              agency_2 = Agency.create(:AgencyName => 'City of El Cerrito', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+              agency_2 = Agency.create(:AgencyName => 'City of Hercules', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+              agency_2 = Agency.create(:AgencyName => 'City of Oakley', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+              agency_2 = Agency.create(:AgencyName => 'City of Orinda', :phone => 9258769876, :email => 'baytrans@baytransit.org')              
+             agency_2 = Agency.create(:AgencyName => 'City of Pittsburg', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Pleasant Hill', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Richmond', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of San Pablo', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of San Ramon', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Walnut Creek', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'County of Contra Costa', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Danville Transportation Dept.', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Eastern Contra Costa Transit Authority', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'LAVTA', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Town of Danville ', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Town of Moraga', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Tri Delta Transit', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'West Contra Costa Transportation Advisory Committee', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Western Contra Costa Transit Authority (WestCAT)', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         
+         agency_2 = Agency.create(:AgencyName => 'City of Benecia', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Fairfield', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Rio Vista', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Suisun City', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Vacaville', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'City of Vallejo', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Fairfield Public Works& Transportation. Div.', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Road Maintenance Dept.', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         agency_2 = Agency.create(:AgencyName => 'Solano Transportation Authority', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+         
+          agency_2 = Agency.create(:AgencyName => 'Bay Area Air Quality Management District', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'Bay Area Toll Authority - Caltrans - Bay Bridge Project (Public Information Dept.)', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'City & County of SF', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'Golden Gate Bridge, Highway and Transportation District (GGBHTD) - Accounting/Auditor-Controller', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'Golden Gate Bridge, Highway and Transportation District (GGBHTD) - Capital & Grant Prgms', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'Golden Gate Bridge, Highway and Transportation District (GGBHTD) - Information Systems Presidio Trust', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'S.F. Bay Conservation & Development Commission (SFBCDC)', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'San Francisco County Transportation Authority', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'SF Municipal Transp. Agency', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'SF Municipal Transp. Agency - Presidio Shop', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          agency_2 = Agency.create(:AgencyName => 'Transbay Joint Powers Authority', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          
+           agency_2 = Agency.create(:AgencyName => 'City of Belmont', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Brisbane', :phone => 9258769876, :email => 'baytrans@baytransit.org') 
+           agency_2 = Agency.create(:AgencyName => 'City of Burlingame', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Daly City', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Foster City', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Menlo Park', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Millbrae', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of San Bruno', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of San Carlos', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of San Mateo Public Works/Engineering', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Union City ', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'County of San Mateo', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'County of San Mateo / Public Works: Construction', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'County of San Mateo / Public Works: Road Ops', :phone => 9258769876, :email => 'baytrans@baytransit.org') 
+           agency_2 = Agency.create(:AgencyName => 'Gilroy Comm.Dev.Dept./Engineering Div.', :phone => 9258769876, :email => 'baytrans@baytransit.org') 
+           agency_2 = Agency.create(:AgencyName => 'San Mateo County Transit District - SamTrans/Caltrain/Transp. Authority', :phone => 9258769876, :email => 'baytrans@baytransit.org') 
+           agency_2 = Agency.create(:AgencyName => 'Town of Colma ', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'Town of Woodside', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           
+           
+           agency_2 = Agency.create(:AgencyName => 'City of Campbell', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Gilroy - Cmmty Dev. Dept.', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Los Altos', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Monte Sereno ', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Morgan Hill', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Mountain View', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Saratoga ', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'County of Santa Clara - Roads & Airports ', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'Los Altos Hills', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'Santa Clara VTA', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           
+           agency_2 = Agency.create(:AgencyName => 'City of Healdsburg', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Petaluma', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'City of Santa Rosa', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'County of Sonoma - Transp. & Public Works', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'Sonoma County Transportation Authority (SCTA)', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+           agency_2 = Agency.create(:AgencyName => 'Town of Windsor', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+          
+              
+        mentor = Mentor.create(:FirstName => 'Yong', :LastName => 'Lee', :title => 'System Admin', :department => 'A&TS', :phone => '5108175829', :email => 'ylee@actransit.org')
+        mentor_2 = Mentor.create(:FirstName => 'David', :LastName => 'Wong', :title => 'System Admin', :department => 'A&TS', :phone => '5108175829', :email => 'dwong@actransit.org')
+
+        authorizedPerson = AuthorizedPerson.create(:FirstName => 'Pranathi', :LastName => 'Naka', :title => 'System Admin', :department => 'A&TS', :phone => '510999999', :email => 'nakaP@actransit.org')
+        authorizedPerson = AuthorizedPerson.create(:FirstName => 'Ethan', :LastName => 'Michael', :title => 'System Admin', :department => 'A&TS', :phone => '585799844', :email => 'emakaP@mtc.ca.org')
+
+        AuthorizedPerson.create(:FirstName => 'Tom', :LastName => 'Bryan', :title => 'Database Admin', :department => 'Health', :phone => '847-444-443', :email => 'tBryan@actransit.org')
+
+        addr = Address.create(:city => 'Oakland', :state => 'CA', :StreetName => '8th Street', :StreetNumber => '101', :zip => '95607')
+        addr_2 = Address.create(:city => 'San Frnacisco', :state => 'CA', :StreetName => 'Market Street', :StreetNumber => '5101', :zip => '95677')
+
+        cnty = County.create(:CountyName => 'Alameda')
+        cnty = County.create(:CountyName => 'Contra Costa')
+        cnty = County.create(:CountyName => 'Sononma')
+        cnty = County.create(:CountyName => 'Marine')
+        cnty = County.create(:CountyName => 'Santa Clara')
+        cnty = County.create(:CountyName => 'Napa')
+        cnty = County.create(:CountyName => 'San Mateo')
+        cnty = County.create(:CountyName => 'Solano')
+        cnty = County.create(:CountyName => 'San Francicso')
+      
+      
+      
+
+        deprt = Department.create(:Name => 'Accounting')
+        deprt = Department.create(:Name => 'AT&S')
+        deprt = Department.create(:Name => 'Finance')
+        deprt = Department.create(:Name => 'BOA')
+
+        enrichmentAct = EnrichmentAct.create(:desc => 'Reading a lot.', :name => 'Reading')
+        enrichmentAct = EnrichmentAct.create(:desc => 'Singing a lot.', :name => 'Singing')
+        enrichmentAct = EnrichmentAct.create(:desc => 'Take a lot of pictures.', :name => 'Photography')
+
+        internQuestion = InternQuestion.create(:name => 'Interns have a one- to two-week vacation scheduled', :value => '1')
+        internQuestion = InternQuestion.create(:name => 'Interns are seeking a part-time schedule only', :value => '0')
+        internQuestion = InternQuestion.create(:name => 'Has your agency participated in MTC High School Internship Program in the past', :value => '1')
+
+
+        interviewer = Interviewer.create(:email => 'Hwoint@abc.com', :FirstName => 'Harry', :LastName => 'Waong', :phone => '8760981432', :title => 'Software Developer')
+        interviewer = Interviewer.create(:email => 'BSunny@bay1.com', :FirstName => 'Sunny', :LastName => 'Bee', :phone => '9386098143', :title => 'Finance Analyst')
+        interviewer = Interviewer.create(:email => 'MSweet@news.com', :FirstName => 'Mary', :LastName => 'Sweet', :phone => '9830981432', :title => 'Accountant')
+
+        job = Job.create(:Enddate => '10/31/2013', :JobDesc => 'Senior Account Manager', :Job_title => 'Account Manager', :RequiredSkills_1 => 'International accounting pratices', :RequiredSkills_2 => 'Business software', :RequiredSkills_3 => 'IBM Mainframe', :Startdate => Date.new(2012, 03, 22))
+        job = Job.create(:Enddate => '12/31/2015', :JobDesc => 'Chief Architect in Software Development', :Job_title => 'Chief Architect', :RequiredSkills_1 => 'Software Analysis', :RequiredSkills_2 => 'High performance clustering', :RequiredSkills_3 => 'J2EE', :Startdate => Date.new(2011, 04, 15))
+        job = Job.create(:Enddate => '11/31/2017', :JobDesc => 'Senior Accountant', :Job_title => 'Accountant III', :RequiredSkills_1 => 'International accounting pratices', :RequiredSkills_2 => 'Business software', :RequiredSkills_3 => 'IBM Mainframe', :Startdate => Date.new(2009, 12, 22))
+
+=begin
+#error
+        Status = Status.create(:StatusDescription => 'Completed')
+        Status = Status.create(:StatusDescription => 'Incomplete')
+        Status = Status.create(:StatusDescription => 'Pending')
+        Status = Status.create(:StatusDescription => 'In Progress')
+
+        internshipLocation = InternshipLocation.create(:phone => '8376653332')
+        InternshipLocation = InternshipLocation.create(:phone => '8577366653')
+        InternshipLocation = InternshipLocation.create(:phone => '2148799960')
+=end
+
+
+        internRequest = InternRequest.create(:EndDate => Date.new(2012, 05, 12), :EndHour => '5', :EveningMeetingsPercent => '0', :InternProjectDesc => 'Working in accounting office and help file papers.', :InternProvisionEmail => '1', :InternProvisionPhone => '0', :OfficeDutiesPercent => '80', :OutFieldWorkPercent => '20', :StartDate => Date.new(2011, 12, 22), :StartHour => '8', :WeekendWorkPercent => '0')
+        internRequest = InternRequest.create(:EndDate => Date.new(2012, 12, 22), :EndHour => '5', :EveningMeetingsPercent => '10', :InternProjectDesc => 'Help to write simple documentations.', :InternProvisionEmail => '1', :InternProvisionPhone => '1', :OfficeDutiesPercent => '80', :OutFieldWorkPercent => '10', :StartDate => Date.new(2012, 05, 01), :StartHour => '8', :WeekendWorkPercent => '0')
+        internRequest = InternRequest.create(:EndDate => Date.new(2014, 12, 31), :EndHour => '5', :EveningMeetingsPercent => '30', :InternProjectDesc => 'Help to create test script for web applications.', :InternProvisionEmail => '1', :InternProvisionPhone => '1', :OfficeDutiesPercent => '80', :OutFieldWorkPercent => '10', :StartDate => Date.new(2011, 12, 22), :StartHour => '8', :WeekendWorkPercent => '0')
+
+        contact = Contact.create(:Email => 'y@bvc.com', :FirstName => 'Bob', :LastName => 'Fastman', :phone => '5460982655')
+        contact = Contact.create(:Email => 'boww@bvc.com', :FirstName => 'Bow', :LastName => 'Kittman', :phone => '9986098265')
+        contact = Contact.create(:Email => 'poi@bvc.com', :FirstName => 'Pointman', :LastName => 'Test', :phone => '5460982098')
+
+      end
+
+    end
+
+    desc "Delete all the data from the database."
+    task :delete_all_data_from_database => :environment do
+
+      begin
+
+        puts "Are you sure to delete all the data from the database?(yes/no)"
+        answer = $stdin.gets.chomp
+
+        log_init("internReq")
+
+        if (answer == "yes")
+
+          puts "\n\n Deleting all the data from the database ....\n\n"
+    
+          InternRequest.delete_all      
+
+          Address.delete_all
+          Agency.delete_all
+          AuthorizedPerson.delete_all
+          Contact.delete_all
+          County.delete_all
+          Department.delete_all
+          EnrichmentAct.delete_all
+          InternQuestion.delete_all
+          
+          InternshipLocation.delete_all
+          Interviewer.delete_all
+          Job.delete_all
+          LoginUser.delete_all
+          Mentor.delete_all
+          Status.delete_all
+
+                
+        end
+      end
+
+    end
+
+  end
+end

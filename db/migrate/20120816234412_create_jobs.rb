@@ -1,0 +1,19 @@
+class CreateJobs < ActiveRecord::Migration
+  def change
+    create_table :jobs do |t|
+      t.string :Job_title
+      t.text :JobDesc
+      t.text :RequiredSkills_1
+      t.text :RequiredSkills_2
+      t.text :RequiredSkills_3
+      t.datetime :Startdate
+      t.datetime :Enddate
+      t.decimal  :MinHourlyRate
+      t.decimal  :MaxHourlyRate
+      
+      t.references :intern_request
+
+      t.timestamps
+    end
+  end
+end

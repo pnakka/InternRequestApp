@@ -1,0 +1,3 @@
+class InternshipLocation < ActiveRecord::Base
+  attr_accessible :Phone
+end

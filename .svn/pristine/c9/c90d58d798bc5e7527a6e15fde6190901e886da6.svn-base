@@ -1,0 +1,7 @@
+class Address < ActiveRecord::Base
+  attr_accessible :City, :State, :StreetName, :StreetNumber, :Zipcode
+  
+  belongs_to :agency
+  belongs_to :contact
+  has_many :intern_requests
+end

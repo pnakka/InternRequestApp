@@ -1,0 +1,16 @@
+class CreateInterviewers < ActiveRecord::Migration
+  def change
+    create_table :interviewers do |t|
+      t.string :FirstName
+      t.string :LastName
+      t.string :email
+      t.string :title
+      t.integer :phone
+      
+      t.references :agency
+      t.references :intern_request
+
+      t.timestamps
+    end
+  end
+end

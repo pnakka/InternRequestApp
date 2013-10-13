@@ -1,0 +1,49 @@
+require 'test_helper'
+
+class EnrichmentActsControllerTest < ActionController::TestCase
+  setup do
+    @enrichment_act = enrichment_acts(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:enrichment_acts)
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should create enrichment_act" do
+    assert_difference('EnrichmentAct.count') do
+      post :create, enrichment_act: { desc: @enrichment_act.desc, name: @enrichment_act.name }
+    end
+
+    assert_redirected_to enrichment_act_path(assigns(:enrichment_act))
+  end
+
+  test "should show enrichment_act" do
+    get :show, id: @enrichment_act
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get :edit, id: @enrichment_act
+    assert_response :success
+  end
+
+  test "should update enrichment_act" do
+    put :update, id: @enrichment_act, enrichment_act: { desc: @enrichment_act.desc, name: @enrichment_act.name }
+    assert_redirected_to enrichment_act_path(assigns(:enrichment_act))
+  end
+
+  test "should destroy enrichment_act" do
+    assert_difference('EnrichmentAct.count', -1) do
+      delete :destroy, id: @enrichment_act
+    end
+
+    assert_redirected_to enrichment_acts_path
+  end
+end

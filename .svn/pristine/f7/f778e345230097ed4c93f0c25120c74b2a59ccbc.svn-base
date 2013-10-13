@@ -1,0 +1,5 @@
+class Job < ActiveRecord::Base
+  attr_accessible :Enddate, :JobDesc, :Job_title, :RequiredSkills_1, :RequiredSkills_2, :RequiredSkills_3, :Startdate
+  
+  has_many :intern_requests
+end

@@ -1,0 +1,27 @@
+<h1>Listing login_users</h1>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Password</th>
+    <th>Workemail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @login_users.each do |login_user| %>
+  <tr>
+    <td><%= login_user.Login %></td>
+    <td><%= login_user.Password %></td>
+    <td><%= login_user.Email %></td>
+    <td><%= link_to 'Show', login_user %></td>
+    <td><%= link_to 'Edit', edit_login_user_path(login_user) %></td>
+    <td><%= link_to 'Destroy', login_user, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Login user', new_login_user_path %>

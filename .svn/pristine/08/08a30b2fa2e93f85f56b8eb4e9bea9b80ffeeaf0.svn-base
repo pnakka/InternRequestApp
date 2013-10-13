@@ -1,0 +1,3 @@
+class Job < ActiveRecord::Base
+  attr_accessible :Enddate, :Job_description, :Job_title, :Required_skills_1, :Required_skills_2, :Required_skills_3, :Startdate
+end

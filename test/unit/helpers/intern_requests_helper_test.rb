@@ -1,0 +1,4 @@
+require 'test_helper'
+
+class InternRequestsHelperTest < ActionView::TestCase
+end

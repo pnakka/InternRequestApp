@@ -1,0 +1,18 @@
+<header id="page_header" role="banner">
+	<nav id="utility">
+		<p>
+			You are logged in as <strong>XXX</strong>
+			<%#= link_to "Your Account", "#" %> |
+			<%= link_to "Logout", "#" %>
+		</p>
+	</nav>
+	<%= link_to(
+	image_tag("mtc_logo_2.gif",
+	alt: "InternRequest",
+	id: "logo"),
+	root_url,
+	title: "MTC logo") %>
+
+	<%= yield :main_navigation %>
+
+</header>

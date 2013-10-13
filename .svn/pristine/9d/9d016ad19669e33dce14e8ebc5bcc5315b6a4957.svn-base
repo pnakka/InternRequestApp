@@ -1,0 +1,61 @@
+<%= form_for(@intern_request) do |f| %>
+  <% if @intern_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@intern_request.errors.count, "error") %> prohibited this intern_request from being saved:</h2>
+
+      <ul>
+      <% @intern_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :InternProjectDesc %><br />
+    <%= f.text_area :InternProjectDesc %>
+  </div>
+  <div class="field">
+    <%= f.label :StartHour %><br />
+    <%= f.time_select :StartHour %>
+  </div>
+  <div class="field">
+    <%= f.label :EndHour %><br />
+    <%= f.time_select :EndHour %>
+  </div>
+  <div class="field">
+    <%= f.label :StartDate %><br />
+    <%= f.date_select :StartDate %>
+  </div>
+  <div class="field">
+    <%= f.label :EndDate %><br />
+    <%= f.date_select :EndDate %>
+  </div>
+  <div class="field">
+    <%= f.label :OfficeDutiesPercent %><br />
+    <%= f.number_field :OfficeDutiesPercent %>
+  </div>
+  <div class="field">
+    <%= f.label :OutFieldWorkPercent %><br />
+    <%= f.number_field :OutFieldWorkPercent %>
+  </div>
+  <div class="field">
+    <%= f.label :EveningMeetingsPercent %><br />
+    <%= f.number_field :EveningMeetingsPercent %>
+  </div>
+  <div class="field">
+    <%= f.label :WeekendWorkPercent %><br />
+    <%= f.number_field :WeekendWorkPercent %>
+  </div>
+  <div class="field">
+    <%= f.label :InternProvisionPhone %><br />
+    <%= f.check_box :InternProvisionPhone %>
+  </div>
+  <div class="field">
+    <%= f.label :InternProvisionEmail %><br />
+    <%= f.check_box :InternProvisionEmail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

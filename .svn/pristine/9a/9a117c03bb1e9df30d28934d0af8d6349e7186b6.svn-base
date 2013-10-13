@@ -1,0 +1,209 @@
+
+
+rails generate scaffold AuthorizedPerson FirstName:string  LastName:string title:string department:string phone:string email:string
+
+rails generate scaffold Mentor FirstName:string  LastName:string title:string department:string phone:string email:string
+
+rails generate scaffold Agency AgencyName:string phone:string email:string
+
+rails generate scaffold LoginUser Login:string Password:string Email:string 
+
+rails generate scaffold Interviewer FirstName:string LastName:string Email:string title:string phone:string 
+
+rails generate scaffold InternshipLocation Phone:string 
+
+rails generate scaffold Contact FirstName:string LastName:string Email:string Phone:string 
+
+rails generate scaffold Job Job_title:string Job_description:text Required_skills_1:text Required_skills_2:text Required_skills_3:text Startdate:datetime Enddate:datetime
+
+rails generate scaffold Department DepartmentName:string
+
+rails generate scaffold	Address StreetNumber:string StreetName:string City:string State:string Zipcode:string
+
+rails generate scaffold County CountyName:string
+
+rails generate scaffold Status StatusDescription:string
+
+rails generate scaffold InternRequest InternProjectDesc:text StartHour:time EndHour:time StartDate:time EndDate:time OfficeDutiesPercent:integer OutFieldWorkPercent:integer EveningMeetingsPercent:integer WeekendWorkPercent:integer InternProvisionPhone:boolean  InternProvisionEmail:boolean  
+
+rails generate scaffold EnrichmentAct name:string desc:string
+
+rails generate scaffold InternQuestion name:string value:boolean
+
+
+rails generate migration create_InternRequests_EnrichmentActs
+
+rails generate migration create_InternRequests_InternQuestions 
+
+rails generate migration add_column_
+
+rails generate migration add_fax_to_agencies fax:integer
+
+rails generate migration add_address_id_to_agencies address_id:integer county_id:integer
+
+rails generate migration change_phone_in_agencies 
+
+
+rails generate migration add_agency_id_to_address agency_id:integer X
+
+rails generate migration remove_address_id_from_agency  X
+
+rails generate migration remove_address_id_from_contacts X
+
+rails generate migration add_contact_id_to_address contact_id:integer
+
+rails generate migration remove_intern_request_id_from_interviewers X
+
+rails generate migration remove_intern_request_id_from_jobs X
+
+rails generate migration change_date_in_intern_request
+
+
+
+
+
+
+
+
+
+==============================
+
+For Testing
+
+agency = Agency.create(:AgencyName => 'AC Transit', :phone => 5108769876, :email => 'help@actransit.org')
+agency_2 = Agency.create(:AgencyName => 'Bay Area Transit', :phone => 9258769876, :email => 'baytrans@baytransit.org')
+
+mentor = Mentor.create(:FirstName => 'Yong', :LastName => 'Lee', :title => 'System Admin', :department => 'A&TS', :phone => '5108175829', :email => 'ylee@actransit.org')
+mentor_2 = Mentor.create(:FirstName => 'David', :LastName => 'Wong', :title => 'System Admin', :department => 'A&TS', :phone => '5108175829', :email => 'dwong@actransit.org')
+
+authorizedPerson = AuthorizedPerson.create(:FirstName => 'Pranathi', :LastName => 'Naka', :title => 'System Admin', :department => 'A&TS', :phone => '510999999', :email => 'nakaP@actransit.org')
+authorizedPerson = AuthorizedPerson.create(:FirstName => 'Ethan', :LastName => 'Michael', :title => 'System Admin', :department => 'A&TS', :phone => '585799844', :email => 'emakaP@mtc.ca.org')
+
+agency.AuthorizedPeople << AuthorizedPerson.create(:FirstName => 'Tom', :LastName => 'Bryan', :title => 'Database Admin', :department => 'Health', :phone => '847-444-443', :email => 'tBryan@actransit.org')
+agency_auth_list = agency.AuthorizedPeople.all
+agency_auth_list.size
+
+authorizedPerson_2 = AuthorizedPerson.where("FirstName LIKE :search", {:search => '%tom%'} )
+authorizedPerson_3 = AuthorizedPerson.where("FirstName LIKE :search", {:search => '%ethan%'})
+
+b = AuthorizedPerson.where("FirstName LIKE :search", {:search => '%ethan%'})
+b[0].agency = agency_2
+auth_5 = b[0]
+auth_5.agency
+auth_5.save
+
+
+authorizedPerson_6 = AuthorizedPerson.where("LastName LIKE :search", {:search => '%na%'})
+
+authorizedPerson_6[0].agency = Agency.where("AgencyName LIKE :search", {:search => '%bay%'}).first
+authorizedPerson_6[0].agency
+authorizedPerson_6[0].save
+
+
+agencyM = Agency.where("AgencyName LIKE :search", {:search => '%bay%'}).first
+agencyM.AuthorizedPeople
+agencyM.AuthorizedPeople.size
+agencyM.AuthorizedPeople.where("LastName LIKE :search", {:search => '%na%'}).first
+
+
+authorizedPerson_2 = AuthorizedPerson.first
+
+agencies = Agency.all
+
+agency = Agency.first
+
+authorizedPerson_2.agency = Agency.create(:AgencyName => 'Alameda County Public Works Agency', :phone => '510-987-9844', :email => 'acpw@ACPW.org')
+
+
+agency_1 = Agency.first
+
+
+
+mentor  = Mentor.first
+mentor.agency = agency_1
+mentor.save
+
+mentor_2  = Mentor.where("FirstName LIKE :search", {:search => '%dav%'} )
+mentor_2[0].agency = agency_1
+mentor_2.save
+
+
+authorizedPerson = AuthorizedPerson.first
+agency_2 = Agency.find(2)
+authorizedPerson.agency = agency_2
+authorizedPerson.save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=============================================================
+ => ''
+===========================================
+addr = Address.create (:City => 'Oakland', :State => 'CA', :StreetName => '8th Street', :StreetNumber => '101', :Zipcode => '95607')
+
+addr_2 = Address.create (:City => 'San Frnacisco', :State => 'CA', :StreetName => 'Market Street', :StreetNumber => '5101', :Zipcode => '95677')
+
+cnty = County.create (:CountyName => 'Alameda')
+cnty = County.create (:CountyName => 'Contra Costa')
+cnty = County.create (:CountyName => 'Sononma')
+cnty = County.create (:CountyName => 'Marine')
+
+
+
+deprt = Department.create (:Departmentname => 'Accounting')
+deprt = Department.create (:Departmentname => 'AT&S')
+deprt = Department.create (:Departmentname => 'Finance')
+deprt = Department.create (:Departmentname => 'BOA')
+
+enrichmentAct = EnrichmentAct.create(:desc => 'Reading a lot.', :name => 'Reading')
+enrichmentAct = EnrichmentAct.create(:desc => 'Singing a lot.', :name => 'Singing')
+enrichmentAct = EnrichmentAct.create(:desc => 'Take a lot of pictures.', :name => 'Photography')
+
+
+internQuestion = InternQuestion.create (:name => 'Interns have a one- to two-week vacation scheduled', :value => '1')
+internQuestion = InternQuestion.create (:name => 'Interns are seeking a part-time schedule only', :value => '0')
+internQuestion = InternQuestion.create (:name => 'Has your agency participated in MTC’s High School Internship Program in the past', :value => '1')
+
+
+internshipLocation = InternshipLocation.create(:Phone => '8376653332')
+InternshipLocation = InternshipLocation.create(:Phone => '8577366653')
+InternshipLocation = InternshipLocation.create(:Phone => '2148799960')
+
+interviewer = Interviewer.create(:Email => 'Hwoint@abc.com', :FirstName => 'Harry', :LastName => 'Waong', :phone => '8760981432', :title => 'Software Developer')
+interviewer = Interviewer.create(:Email => 'BSunny@bay1.com', :FirstName => 'Sunny', :LastName => 'Bee', :phone => '9386098143', :title => 'Finance Analyst')
+interviewer = Interviewer.create(:Email => 'MSweet@news.com', :FirstName => 'Mary', :LastName => 'Sweet', :phone => '9830981432', :title => 'Accountant')
+
+
+
+job = Job.create(:Enddate => '10/31/2013', :Job_description => 'Senior Account Manager', :Job_title => 'Account Manager', :Required_skills_1 => 'International accounting pratices', :Required_skills_2 => 'Business software', :Required_skills_3 => 'IBM Mainframe', :Startdate => '01/01/2012')
+job = Job.create(:Enddate => '12/31/2015', :Job_description => 'Chief Architect in Software Development', :Job_title => 'Chief Architect', :Required_skills_1 => 'Software Analysis', :Required_skills_2 => 'High performance clustering', :Required_skills_3 => 'J2EE', :Startdate => '01/01/2012')
+job = Job.create(:Enddate => '11/31/2017', :Job_description => 'Senior Accountant', :Job_title => 'Accountant III', :Required_skills_1 => 'International accounting pratices', :Required_skills_2 => 'Business software', :Required_skills_3 => 'IBM Mainframe', :Startdate => '05/01/2011')
+
+Status = Status.create(:StatusDescription => 'Completed')
+Status = Status.create(:StatusDescription => 'Incomplete')
+Status = Status.create(:StatusDescription => 'Pending')
+Status = Status.create(:StatusDescription => 'In Progress')
+
+internRequest = InternRequest.create(:EndDate => '09/30/2012', :EndHour => '5', :EveningMeetingsPercent => '0', :InternProjectDesc => 'Working in accounting office and help file papers.', :InternProvisionEmail => '1', :InternProvisionPhone => '0', :OfficeDutiesPercent => '80', :OutFieldWorkPercent => '20', :StartDate => '05/01/2012', :StartHour => '8', :WeekendWorkPercent => '0')
+internRequest = InternRequest.create(:EndDate => Date.new(2012, 12, 22), :EndHour => '5', :EveningMeetingsPercent => '10', :InternProjectDesc => 'Help to write simple documentations.', :InternProvisionEmail => '1', :InternProvisionPhone => '1', :OfficeDutiesPercent => '80', :OutFieldWorkPercent => '10', :StartDate => '2012-05-01', :StartHour => '8', :WeekendWorkPercent => '0')
+internRequest = InternRequest.create(:EndDate => Date.new(2014, 12, 31), :EndHour => '5', :EveningMeetingsPercent => '30', :InternProjectDesc => 'Help to create test script for web applications.', :InternProvisionEmail => '1', :InternProvisionPhone => '1', :OfficeDutiesPercent => '80', :OutFieldWorkPercent => '10', :StartDate => Date.new(2011, 12, 22), :StartHour => '8', :WeekendWorkPercent => '0')

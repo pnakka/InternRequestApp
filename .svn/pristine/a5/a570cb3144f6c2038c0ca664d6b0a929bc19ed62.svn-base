@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @intern_question.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @intern_question.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_intern_question_path(@intern_question) %> |
+<%= link_to 'Back', intern_questions_path %>

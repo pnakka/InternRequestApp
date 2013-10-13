@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @enrichment_act.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @enrichment_act.desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_enrichment_act_path(@enrichment_act) %> |
+<%= link_to 'Back', enrichment_acts_path %>

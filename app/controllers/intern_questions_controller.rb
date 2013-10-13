@@ -1,0 +1,84 @@
+
+class InternQuestionsController < ApplicationController
+  # GET /intern_questions
+  # GET /intern_questions.json
+  def index
+    @intern_questions = InternQuestion.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @intern_questions }
+    end
+  end
+
+  # GET /intern_questions/1
+  # GET /intern_questions/1.json
+  def show
+    @intern_question = InternQuestion.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @intern_question }
+    end
+  end
+
+  # GET /intern_questions/new
+  # GET /intern_questions/new.json
+  def new
+    @intern_question = InternQuestion.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @intern_question }
+    end
+  end
+
+  # GET /intern_questions/1/edit
+  def edit
+    @intern_question = InternQuestion.find(params[:id])
+  end
+
+  # POST /intern_questions
+  # POST /intern_questions.json
+  def create
+    @intern_question = InternQuestion.new(params[:intern_question])
+
+    respond_to do |format|
+      if @intern_question.save
+        format.html { redirect_to @intern_question, notice: 'Intern question was successfully created.' }
+        format.json { render json: @intern_question, status: :created, location: @intern_question }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @intern_question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /intern_questions/1
+  # PUT /intern_questions/1.json
+  def update
+    @intern_question = InternQuestion.find(params[:id])
+
+    respond_to do |format|
+      if @intern_question.update_attributes(params[:intern_question])
+        format.html { redirect_to @intern_question, notice: 'Intern question was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @intern_question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /intern_questions/1
+  # DELETE /intern_questions/1.json
+  def destroy
+    @intern_question = InternQuestion.find(params[:id])
+    @intern_question.destroy
+
+    respond_to do |format|
+      format.html { redirect_to intern_questions_url }
+      format.json { head :no_content }
+    end
+  end
+end

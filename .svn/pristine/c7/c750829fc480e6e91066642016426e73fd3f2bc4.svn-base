@@ -1,0 +1,45 @@
+<h1>Listing intern_requests</h1>
+
+<table>
+  <tr>
+    <th>Internprojectdesc</th>
+    <th>Starthour</th>
+    <th>Endhour</th>
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Officedutiespercent</th>
+    <th>Outfieldworkpercent</th>
+    <th>Eveningmeetingspercent</th>
+    <th>Weekendworkpercent</th>
+    <th>Internprovisionphone</th>
+    <th>Internprovisionemail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%= current_at_tab 'Intern Requests' %>
+
+<% @intern_requests.each do |intern_request| %>
+  <tr>
+    <td><%= intern_request.InternProjectDesc %></td>
+    <td><%= intern_request.StartHour %></td>
+    <td><%= intern_request.EndHour %></td>
+    <td><%= intern_request.StartDate %></td>
+    <td><%= intern_request.EndDate %></td>
+    <td><%= intern_request.OfficeDutiesPercent %></td>
+    <td><%= intern_request.OutFieldWorkPercent %></td>
+    <td><%= intern_request.EveningMeetingsPercent %></td>
+    <td><%= intern_request.WeekendWorkPercent %></td>
+    <td><%= intern_request.InternProvisionPhone %></td>
+    <td><%= intern_request.InternProvisionEmail %></td>
+    <td><%= link_to 'Show', intern_request %></td>
+    <td><%= link_to 'Edit', edit_intern_request_path(intern_request) %></td>
+    <td><%= link_to 'Destroy', intern_request, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Intern request', new_intern_request_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @authorized_person.FirstName %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @authorized_person.LastName %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @authorized_person.title %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @authorized_person.department %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @authorized_person.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @authorized_person.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_authorized_person_path(@authorized_person) %> |
+<%= link_to 'Back', authorized_people_path %>

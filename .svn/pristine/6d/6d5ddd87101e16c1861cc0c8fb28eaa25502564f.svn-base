@@ -1,0 +1,13 @@
+class CreateLoginUsers < ActiveRecord::Migration
+  def change
+    create_table :login_users do |t|
+      t.string :Login
+      t.string :Password
+      t.string :Email
+      t.string :FirstName
+      t.string :LastName
+
+      t.timestamps
+    end
+  end
+end

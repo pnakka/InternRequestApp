@@ -1,0 +1,84 @@
+
+class InternshipLocationsController < ApplicationController
+  # GET /internship_locations
+  # GET /internship_locations.json
+  def index
+    @internship_locations = InternshipLocation.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @internship_locations }
+    end
+  end
+
+  # GET /internship_locations/1
+  # GET /internship_locations/1.json
+  def show
+    @internship_location = InternshipLocation.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @internship_location }
+    end
+  end
+
+  # GET /internship_locations/new
+  # GET /internship_locations/new.json
+  def new
+    @internship_location = InternshipLocation.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @internship_location }
+    end
+  end
+
+  # GET /internship_locations/1/edit
+  def edit
+    @internship_location = InternshipLocation.find(params[:id])
+  end
+
+  # POST /internship_locations
+  # POST /internship_locations.json
+  def create
+    @internship_location = InternshipLocation.new(params[:internship_location])
+
+    respond_to do |format|
+      if @internship_location.save
+        format.html { redirect_to @internship_location, notice: 'Internship location was successfully created.' }
+        format.json { render json: @internship_location, status: :created, location: @internship_location }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @internship_location.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /internship_locations/1
+  # PUT /internship_locations/1.json
+  def update
+    @internship_location = InternshipLocation.find(params[:id])
+
+    respond_to do |format|
+      if @internship_location.update_attributes(params[:internship_location])
+        format.html { redirect_to @internship_location, notice: 'Internship location was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @internship_location.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /internship_locations/1
+  # DELETE /internship_locations/1.json
+  def destroy
+    @internship_location = InternshipLocation.find(params[:id])
+    @internship_location.destroy
+
+    respond_to do |format|
+      format.html { redirect_to internship_locations_url }
+      format.json { head :no_content }
+    end
+  end
+end

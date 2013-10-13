@@ -1,0 +1,30 @@
+class CreateInternRequests < ActiveRecord::Migration
+  def change
+    create_table :intern_requests do |t|
+      t.text :InternProjectDesc
+      t.time :StartHour
+      t.time :EndHour
+      t.date :StartDate
+      t.date :EndDate
+      t.integer :OfficeDutiesPercent
+      t.integer :OutFieldWorkPercent
+      t.integer :EveningMeetingsPercent
+      t.integer :WeekendWorkPercent
+      t.boolean :InternProvisionPhone
+      t.boolean :InternProvisionEmail
+      
+            t.references :agency
+            t.references :job
+            t.references :department
+            t.references :mentor
+            t.references :authorized_person
+            t.references :contact
+            t.references :internship_location
+            t.references :status
+            t.references :address
+            t.references :interviewer
+
+      t.timestamps
+    end
+  end
+end

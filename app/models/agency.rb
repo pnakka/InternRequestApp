@@ -1,0 +1,17 @@
+class Agency < ActiveRecord::Base
+  attr_accessible :AgencyName, :email, :phone
+  
+  has_many :mentors
+  has_many :AuthorizedPeople
+  has_many :contacts
+  has_many :addresses
+  has_many :departments
+  has_many :intern_requests
+  has_many :internship_locations
+  
+  
+  
+  belongs_to :county
+  
+  
+end

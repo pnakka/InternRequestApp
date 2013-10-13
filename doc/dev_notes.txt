@@ -1,0 +1,191 @@
+
+Examle ro run a Rake task
+C:\SVN\InternRequestApp>rake InternRequestApp:db_management:create_data
+C:\SVN\InternRequestApp>rake InternRequestApp:db_management:delete_all_data_from_database
+
+
+To populate the database, run
+
+C:\SVN\InternRequestApp>rake InternRequestApp:db_management:import_county_name
+C:\SVN\InternRequestApp>rake InternRequestApp:db_management:import_agency_name
+C:\SVN\InternRequestApp>rake InternRequestApp:db_management:import_status_name
+
+
+
+
+
+
+
+
+C:\SVN\InternRequestApp>rake routes
+         intern_requests GET    /intern_requests(.:format)               intern_requests#index
+                         POST   /intern_requests(.:format)               intern_requests#create
+      new_intern_request GET    /intern_requests/new(.:format)           intern_requests#new
+     edit_intern_request GET    /intern_requests/:id/edit(.:format)      intern_requests#edit
+          intern_request GET    /intern_requests/:id(.:format)           intern_requests#show
+                         PUT    /intern_requests/:id(.:format)           intern_requests#update
+                         DELETE /intern_requests/:id(.:format)           intern_requests#destroy
+        intern_questions GET    /intern_questions(.:format)              intern_questions#index
+                         POST   /intern_questions(.:format)              intern_questions#create
+     new_intern_question GET    /intern_questions/new(.:format)          intern_questions#new
+    edit_intern_question GET    /intern_questions/:id/edit(.:format)     intern_questions#edit
+         intern_question GET    /intern_questions/:id(.:format)          intern_questions#show
+                         PUT    /intern_questions/:id(.:format)          intern_questions#update
+                         DELETE /intern_questions/:id(.:format)          intern_questions#destroy
+         enrichment_acts GET    /enrichment_acts(.:format)               enrichment_acts#index
+                         POST   /enrichment_acts(.:format)               enrichment_acts#create
+      new_enrichment_act GET    /enrichment_acts/new(.:format)           enrichment_acts#new
+     edit_enrichment_act GET    /enrichment_acts/:id/edit(.:format)      enrichment_acts#edit
+          enrichment_act GET    /enrichment_acts/:id(.:format)           enrichment_acts#show
+                         PUT    /enrichment_acts/:id(.:format)           enrichment_acts#update
+                         DELETE /enrichment_acts/:id(.:format)           enrichment_acts#destroy
+                         GET    /intern_requests(.:format)               intern_requests#index
+                         POST   /intern_requests(.:format)               intern_requests#create
+                         GET    /intern_requests/new(.:format)           intern_requests#new
+                         GET    /intern_requests/:id/edit(.:format)      intern_requests#edit
+                         GET    /intern_requests/:id(.:format)           intern_requests#show
+                         PUT    /intern_requests/:id(.:format)           intern_requests#update
+                         DELETE /intern_requests/:id(.:format)           intern_requests#destroy
+            interviewers GET    /interviewers(.:format)                  interviewers#index
+                         POST   /interviewers(.:format)                  interviewers#create
+         new_interviewer GET    /interviewers/new(.:format)              interviewers#new
+        edit_interviewer GET    /interviewers/:id/edit(.:format)         interviewers#edit
+             interviewer GET    /interviewers/:id(.:format)              interviewers#show
+                         PUT    /interviewers/:id(.:format)              interviewers#update
+                         DELETE /interviewers/:id(.:format)              interviewers#destroy
+    internship_locations GET    /internship_locations(.:format)          internship_locations#index
+                         POST   /internship_locations(.:format)          internship_locations#create
+ new_internship_location GET    /internship_locations/new(.:format)      internship_locations#new
+edit_internship_location GET    /internship_locations/:id/edit(.:format) internship_locations#edit
+     internship_location GET    /internship_locations/:id(.:format)      internship_locations#show
+                         PUT    /internship_locations/:id(.:format)      internship_locations#update
+                         DELETE /internship_locations/:id(.:format)      internship_locations#destro
+                statuses GET    /statuses(.:format)                      statuses#index
+                         POST   /statuses(.:format)                      statuses#create
+              new_status GET    /statuses/new(.:format)                  statuses#new
+             edit_status GET    /statuses/:id/edit(.:format)             statuses#edit
+                  status GET    /statuses/:id(.:format)                  statuses#show
+                         PUT    /statuses/:id(.:format)                  statuses#update
+                         DELETE /statuses/:id(.:format)                  statuses#destroy
+                counties GET    /counties(.:format)                      counties#index
+                         POST   /counties(.:format)                      counties#create
+              new_county GET    /counties/new(.:format)                  counties#new
+             edit_county GET    /counties/:id/edit(.:format)             counties#edit
+                  county GET    /counties/:id(.:format)                  counties#show
+                         PUT    /counties/:id(.:format)                  counties#update
+                         DELETE /counties/:id(.:format)                  counties#destroy
+               addresses GET    /addresses(.:format)                     addresses#index
+                         POST   /addresses(.:format)                     addresses#create
+             new_address GET    /addresses/new(.:format)                 addresses#new
+            edit_address GET    /addresses/:id/edit(.:format)            addresses#edit
+                 address GET    /addresses/:id(.:format)                 addresses#show
+                         PUT    /addresses/:id(.:format)                 addresses#update
+                         DELETE /addresses/:id(.:format)                 addresses#destroy
+             departments GET    /departments(.:format)                   departments#index
+                         POST   /departments(.:format)                   departments#create
+          new_department GET    /departments/new(.:format)               departments#new
+         edit_department GET    /departments/:id/edit(.:format)          departments#edit
+              department GET    /departments/:id(.:format)               departments#show
+                         PUT    /departments/:id(.:format)               departments#update
+                         DELETE /departments/:id(.:format)               departments#destroy
+                    jobs GET    /jobs(.:format)                          jobs#index
+                         POST   /jobs(.:format)                          jobs#create
+                 new_job GET    /jobs/new(.:format)                      jobs#new
+                edit_job GET    /jobs/:id/edit(.:format)                 jobs#edit
+                     job GET    /jobs/:id(.:format)                      jobs#show
+                         PUT    /jobs/:id(.:format)                      jobs#update
+                         DELETE /jobs/:id(.:format)                      jobs#destroy
+                contacts GET    /contacts(.:format)                      contacts#index
+                         POST   /contacts(.:format)                      contacts#create
+             new_contact GET    /contacts/new(.:format)                  contacts#new
+            edit_contact GET    /contacts/:id/edit(.:format)             contacts#edit
+                 contact GET    /contacts/:id(.:format)                  contacts#show
+                         PUT    /contacts/:id(.:format)                  contacts#update
+                         DELETE /contacts/:id(.:format)                  contacts#destroy
+             login_users GET    /login_users(.:format)                   login_users#index
+                         POST   /login_users(.:format)                   login_users#create
+          new_login_user GET    /login_users/new(.:format)               login_users#new
+         edit_login_user GET    /login_users/:id/edit(.:format)          login_users#edit
+              login_user GET    /login_users/:id(.:format)               login_users#show
+                         PUT    /login_users/:id(.:format)               login_users#update
+                         DELETE /login_users/:id(.:format)               login_users#destroy
+                agencies GET    /agencies(.:format)                      agencies#index
+                         POST   /agencies(.:format)                      agencies#create
+              new_agency GET    /agencies/new(.:format)                  agencies#new
+             edit_agency GET    /agencies/:id/edit(.:format)             agencies#edit
+                  agency GET    /agencies/:id(.:format)                  agencies#show
+                         PUT    /agencies/:id(.:format)                  agencies#update
+                         DELETE /agencies/:id(.:format)                  agencies#destroy
+                 mentors GET    /mentors(.:format)                       mentors#index
+                         POST   /mentors(.:format)                       mentors#create
+              new_mentor GET    /mentors/new(.:format)                   mentors#new
+             edit_mentor GET    /mentors/:id/edit(.:format)              mentors#edit
+                  mentor GET    /mentors/:id(.:format)                   mentors#show
+                         PUT    /mentors/:id(.:format)                   mentors#update
+                         DELETE /mentors/:id(.:format)                   mentors#destroy
+       authorized_people GET    /authorized_people(.:format)             authorized_people#index
+                         POST   /authorized_people(.:format)             authorized_people#create
+   new_authorized_person GET    /authorized_people/new(.:format)         authorized_people#new
+  edit_authorized_person GET    /authorized_people/:id/edit(.:format)    authorized_people#edit
+       authorized_person GET    /authorized_people/:id(.:format)         authorized_people#show
+                         PUT    /authorized_people/:id(.:format)         authorized_people#update
+                         DELETE /authorized_people/:id(.:format)         authorized_people#destroy
+
+C:\SVN\InternRequestApp>
+
+
+========================================
+
+CSS Styles:
+
+Style rules are formed as follows:
+selector { property: value }
+selector { property1: value1; property2: value2 }
+ig. H1 { font-size: x-large; color: red }
+
+
+CSS Structures & Rules
+http://htmlhelp.com/reference/css/structure.html
+
+=======================
+Class Selectors
+Note: A good practice is to name classes according to their function rather than their appearance. 
+
+html_element.class_name
+
+code.html { color: #191970 }
+code.css  { color: #4b0082 }
+
+or
+
+.class_name
+
+.note { font-size: small }
+
+To use class, specify the class name with CLASS=
+ex. <P CLASS=warning>Only one class is allowed per selector.
+For example, code.html.proprietary is invalid.</p>
+
+=====================================
+ID Selectors
+
+ID selectors are individually assigned for the purpose of defining on a per-element basis. 
+An ID selector is assigned by using the indicator "#" to precede a name. 
+For example, an ID selector could be assigned as such:
+
+#svp94O { text-indent: 3em }
+
+This would be referenced in HTML by the ID attribute:
+
+<P ID=svp94O>Text indented 3em</P>
+
+=======================
+Grouping
+
+In order to decrease repetitious statements within style sheets, grouping of selectors and declarations is allowed. For example, all of the headings in a document could be given identical declarations through a grouping:
+
+H1, H2, H3, H4, H5, H6 {
+  color: red;
+  font-family: sans-serif }
+  
+============

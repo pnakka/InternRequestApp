@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Job_title: MyString
+  Job_description: MyText
+  Required_skills_1: MyText
+  Required_skills_2: MyText
+  Required_skills_3: MyText
+  Startdate: 2012-08-16 16:44:18
+  Enddate: 2012-08-16 16:44:18
+
+two:
+  Job_title: MyString
+  Job_description: MyText
+  Required_skills_1: MyText
+  Required_skills_2: MyText
+  Required_skills_3: MyText
+  Startdate: 2012-08-16 16:44:18
+  Enddate: 2012-08-16 16:44:18

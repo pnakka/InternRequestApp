@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Internprojectdesc:</b>
+  <%= @intern_request.InternProjectDesc %>
+</p>
+
+<p>
+  <b>Starthour:</b>
+  <%= @intern_request.StartHour %>
+</p>
+
+<p>
+  <b>Endhour:</b>
+  <%= @intern_request.EndHour %>
+</p>
+
+<p>
+  <b>Startdate:</b>
+  <%= @intern_request.StartDate %>
+</p>
+
+<p>
+  <b>Enddate:</b>
+  <%= @intern_request.EndDate %>
+</p>
+
+<p>
+  <b>Officedutiespercent:</b>
+  <%= @intern_request.OfficeDutiesPercent %>
+</p>
+
+<p>
+  <b>Outfieldworkpercent:</b>
+  <%= @intern_request.OutFieldWorkPercent %>
+</p>
+
+<p>
+  <b>Eveningmeetingspercent:</b>
+  <%= @intern_request.EveningMeetingsPercent %>
+</p>
+
+<p>
+  <b>Weekendworkpercent:</b>
+  <%= @intern_request.WeekendWorkPercent %>
+</p>
+
+<p>
+  <b>Internprovisionphone:</b>
+  <%= @intern_request.InternProvisionPhone %>
+</p>
+
+<p>
+  <b>Internprovisionemail:</b>
+  <%= @intern_request.InternProvisionEmail %>
+</p>
+
+
+<%= link_to 'Edit', edit_intern_request_path(@intern_request) %> |
+<%= link_to 'Back', intern_requests_path %>

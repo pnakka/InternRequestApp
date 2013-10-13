@@ -1,0 +1,60 @@
+<html :xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang' => "en", :lang => "en">
+  <head>
+    <meta 'http-equiv' => "content-type", :content => "text/html;charset=UTF-8">
+    </meta>
+    <title>
+      <%= APP_CONFIG['app_name'] %>
+    </title>
+    <%= javascript_include_tag "jquery",  "jquery-cluetip", "jquery.form", "jquery-suggest", 'jquery-ui/js/jquery-ui-1.7.2.custom.min', "app", :cache => false %>
+    <%= stylesheet_link_tag "styles", "jquery-suggest", "jquery-cluetip", :cache => true %>
+  </head>
+  <body>
+    <table id="main">
+      <tr>
+        <td id="header_outer">
+          <table id="header">
+            <tr>
+              <td id="title">
+                <a :href => '/'>
+                  <img :src => '/images/logo_and_title.gif', :alt => 'Logo and title'>
+                  </img>
+                </a>
+              </td>
+              <td id="user_controls">
+                <strong>
+                  welcome
+                </strong>
+                <%= logged_in_user.username %>
+                |
+                <%= link_to('log out', session_path(0), :method => :delete) %>
+              </td>
+            </tr>
+            <tr>
+              <td id="navbar" :colspan => '2'>
+                <table id="nav_sections">
+                  <tr>
+                    <%= navigation_tabs %>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <% if flash[:notice] %>
+        <tr>
+          <td class="messagearea" :colspan => '3'>
+            <%= flash[:notice] %>
+          </td>
+        </tr>
+      <tr>
+        <td id="cdb_body" :colspan => '3'>
+          <%= yield %>
+          <div class="pad_nine">
+            &nbsp;
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
